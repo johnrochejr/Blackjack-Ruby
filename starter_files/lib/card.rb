@@ -4,7 +4,43 @@ class Card
 
   attr_reader :suit, :rank
 
-  def initialize(suit, value)
+  def initialize(suit, rank)
     @suit = suit
     @rank = rank
   end
+
+  def values
+    value = case @rank.to_i # transform rank string to rank integer
+    when 1
+      11
+    when 2..10
+      @rank
+    when 11..13
+      10
+    else
+      nil
+    end
+  end
+
+  def display_rank
+    case @rank
+    when "11"
+      "Jack"
+    when "12"
+      "Queen"
+    when "13"
+      "King"
+    when "1"
+      "Ace"
+    else
+      @rank
+    end
+  end
+
+  def to_s
+    "#{display_rank} of #{@suit}, value #{value}"
+  end
+end
+
+card = Card.new(:spades, 12)
+puts Cards.to_s

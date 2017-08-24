@@ -1,4 +1,4 @@
-require relative 'card'
+require_relative 'card'
 
 class Deck
   attr_accessor :cards
@@ -6,10 +6,11 @@ class Deck
   def initialize
     @cards = []
 
-    SUITS.each do |suit|
-      RANKS.each do |rank|
-        @cards = << Card.new(rank, suit)
+    Card::SUITS.each do |suit|
+      Card::RANKS.each do |rank|
+        @cards << Card.new(rank, suit)
       end
     end
+  end
 
 end
