@@ -1,5 +1,5 @@
 class Card
-  SUITS = [:clubs, :diamonds, :hearts, :spades]
+  SUITS = [:Clubs, :Diamonds, :Hearts, :Spades]
   RANKS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"]
 
   attr_reader :suit, :rank
@@ -9,8 +9,8 @@ class Card
     @rank = rank
   end
 
-  def values
-    value = case @rank.to_i # transform rank string to rank integer
+  def value
+    case @rank.to_i # transform rank string to rank integer
     when 1
       11
     when 2..10
@@ -24,13 +24,13 @@ class Card
 
   def display_rank
     case @rank
-    when "11"
+    when 11
       "Jack"
-    when "12"
+    when 12
       "Queen"
-    when "13"
+    when 13
       "King"
-    when "1"
+    when 1
       "Ace"
     else
       @rank
@@ -42,5 +42,5 @@ class Card
   end
 end
 
-card = Card.new(:spades, 12)
-puts Cards.to_s
+# card = Card.new(:Clubs, 11)
+# puts card
